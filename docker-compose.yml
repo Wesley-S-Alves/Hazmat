@@ -1,0 +1,19 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./models:/app/models
+      - ./configs:/app/configs
+      - ./data/processed:/app/data/processed
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - OMP_NUM_THREADS=1
+      - HAZMAT_DEVICE=cpu
+      - MODELS_DIR=/app/models
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

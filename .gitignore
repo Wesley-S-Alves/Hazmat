@@ -1,0 +1,36 @@
+# Environment
+.env
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Models - include joblib models but exclude e5-hazmat (1.1GB, hosted on HF Hub)
+models/e5-hazmat/
+
+# Data - raw and processed are intermediate, output is the deliverable
+data/raw/
+data/processed/
+!data/output/
+
+
+# MLflow local state
+mlruns/
+mlflow.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+.claude/

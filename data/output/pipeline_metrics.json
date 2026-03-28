@@ -1,0 +1,36 @@
+{
+  "total_items_classified": 100936,
+  "hazmat_total": 37313,
+  "hazmat_rate": 0.3697,
+  "layers": {
+    "ml": {
+      "total": 95224,
+      "hazmat": 35232,
+      "not_hazmat": 59992,
+      "hazmat_rate": 0.37,
+      "avg_confidence": 0.9467
+    },
+    "llm": {
+      "total": 5712,
+      "hazmat": 2081,
+      "not_hazmat": 3631,
+      "hazmat_rate": 0.3643,
+      "avg_confidence": 0.9297
+    }
+  },
+  "layer_routing": {
+    "ml": 0.9434,
+    "llm": 0.0566
+  },
+  "human_review": {
+    "total": 68,
+    "rate": 0.0007
+  },
+  "failed_items": 0,
+  "confidence_stats": {
+    "mean": 0.9458,
+    "median": 0.9515,
+    "min": 0.6,
+    "below_0.8": 73
+  }
+}

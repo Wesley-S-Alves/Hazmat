@@ -1,0 +1,12 @@
+.venv/
+.git/
+data/
+notebooks/
+models/e5-hazmat/
+*.parquet
+*.csv
+__pycache__/
+.DS_Store
+mlruns/
+*.pyc
+.claude/

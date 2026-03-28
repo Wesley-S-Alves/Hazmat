@@ -1,0 +1,186 @@
+# Hazmat keyword rules organized by hazard class.
+# Each class has a list of keywords and a reason template.
+# Match is case-insensitive on title + description.
+
+hazard_classes:
+  flammable:
+    reason: "Contains flammable/combustible material"
+    keywords:
+      - "inflamável"
+      - "inflamavel"
+      - "combustível"
+      - "combustivel"
+      - "gasolina"
+      - "diesel"
+      - "querosene"
+      - "álcool etílico"
+      - "alcool etilico"
+      - "álcool isopropílico"
+      - "acetona"
+      - "thinner"
+      - "tíner"
+      - "solvente"
+      - "aguarrás"
+      - "aguarras"
+      - "benzina"
+      - "nafta"
+      - "etanol combustível"
+
+  lithium_battery:
+    reason: "Contains lithium battery (fire/explosion risk)"
+    keywords:
+      - "bateria de lítio"
+      - "bateria de litio"
+      - "bateria lithium"
+      - "bateria li-ion"
+      - "bateria li-po"
+      - "bateria lipo"
+      - "lithium ion"
+      - "lithium polymer"
+      - "célula de lítio"
+      - "celula de litio"
+      - "18650"
+      - "21700"
+      - "bateria recarregável"
+
+  corrosive:
+    reason: "Contains corrosive substance"
+    keywords:
+      - "ácido"
+      - "acido"
+      - "corrosivo"
+      - "soda cáustica"
+      - "soda caustica"
+      - "hidróxido de sódio"
+      - "hidróxido de potássio"
+      - "ácido muriático"
+      - "ácido sulfúrico"
+      - "ácido clorídrico"
+      - "desentupidor químico"
+      - "cloro"
+      - "hipoclorito"
+      - "água sanitária"
+      - "agua sanitaria"
+
+  toxic:
+    reason: "Contains toxic/poisonous substance"
+    keywords:
+      - "veneno"
+      - "inseticida"
+      - "pesticida"
+      - "herbicida"
+      - "fungicida"
+      - "raticida"
+      - "mata rato"
+      - "formicida"
+      - "mata formiga"
+      - "mata barata"
+      - "mata mosquito"
+      - "repelente elétrico"
+      - "tóxico"
+      - "toxico"
+      - "agrotóxico"
+      - "agrotoxico"
+      - "cianeto"
+      - "arsênico"
+
+  explosive:
+    reason: "Contains explosive/pyrotechnic material"
+    keywords:
+      - "pólvora"
+      - "polvora"
+      - "fogos de artifício"
+      - "fogos de artificio"
+      - "pirotécnico"
+      - "pirotecnico"
+      - "rojão"
+      - "rojao"
+      - "bombinha"
+      - "detonador"
+      - "explosivo"
+      - "munição"
+      - "municao"
+      - "espoleta"
+
+  compressed_gas:
+    reason: "Contains compressed/liquefied gas"
+    keywords:
+      - "aerossol"
+      - "spray"
+      - "gás comprimido"
+      - "gas comprimido"
+      - "gás liquefeito"
+      - "butano"
+      - "propano"
+      - "gás refrigerante"
+      - "r134a"
+      - "r410a"
+      - "r22"
+      - "extintor"
+      - "cilindro de gás"
+      - "oxigênio medicinal"
+      - "acetileno"
+      - "co2"
+      - "nitrogênio"
+
+  oxidizer:
+    reason: "Contains oxidizing agent"
+    keywords:
+      - "peróxido"
+      - "peroxido"
+      - "água oxigenada"
+      - "agua oxigenada"
+      - "oxidante"
+      - "permanganato"
+      - "nitrato"
+      - "clorato"
+      - "perclorato"
+
+  radioactive:
+    reason: "Contains radioactive material"
+    keywords:
+      - "radioativo"
+      - "radiativo"
+      - "urânio"
+      - "césio"
+      - "cobalto 60"
+      - "material nuclear"
+
+  miscellaneous_hazmat:
+    reason: "Contains regulated hazardous material"
+    keywords:
+      - "amianto"
+      - "asbesto"
+      - "mercúrio"
+      - "mercurio"
+      - "chumbo"
+      - "cromo hexavalente"
+      - "formaldeído"
+      - "formol"
+      - "resina epóxi"
+      - "resina epoxi"
+      - "tinta spray"
+      - "verniz"
+      - "esmalte sintético"
+      - "óleo de motor"
+      - "oleo de motor"
+      - "fluido de freio"
+      - "líquido de arrefecimento"
+      - "anticongelante"
+
+# Keywords that EXCLUDE hazmat classification (override above matches)
+# These are common false positives
+exclusions:
+  - "capa para"
+  - "case para"
+  - "suporte para"
+  - "cabo para"
+  - "película"
+  - "protetor de tela"
+  - "adesivo decorativo"
+  - "quadro decorativo"
+  - "camiseta"
+  - "caneca"
+  - "livro"
+  - "ácido hialurônico"  # cosmetic, not hazmat
+  - "ácido glicólico"    # cosmetic

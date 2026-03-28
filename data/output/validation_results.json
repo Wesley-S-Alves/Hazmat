@@ -1,0 +1,26 @@
+{
+  "passed": "True",
+  "golden_set_size": 40,
+  "f1": 0.9767,
+  "precision": 1.0,
+  "recall": 0.9545,
+  "false_negatives": 1,
+  "false_negative_rate": 0.0455,
+  "false_positives": 0,
+  "errors": [
+    {
+      "title": "Vela aromatica decorativa vanilla",
+      "expected": true,
+      "predicted": false,
+      "error_type": "FALSE_NEGATIVE",
+      "confidence": 0.9626867225856741,
+      "ensemble_proba": 0.023883469017960905,
+      "class": "flammable_solid"
+    }
+  ],
+  "thresholds": {
+    "min_f1": 0.85,
+    "max_fn_rate": 0.08
+  },
+  "inference_time_ms": 2307.7
+}

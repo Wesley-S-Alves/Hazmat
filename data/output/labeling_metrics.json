@@ -1,0 +1,20 @@
+{
+  "run_elapsed_s": 849.8,
+  "items_labeled_this_run": 7300,
+  "total_labels_in_file": 10000,
+  "throughput_items_per_s": 8.59,
+  "total_requests": 1460,
+  "total_items": 7300,
+  "successful_items": 7300,
+  "failed_items": 0,
+  "error_rate": 0.0,
+  "avg_items_per_request": 5.0,
+  "total_input_tokens": 1157011,
+  "total_output_tokens": 526381,
+  "total_tokens": 1683392,
+  "tokens_saved_estimate": 2044000,
+  "avg_latency_s": 7.319,
+  "total_latency_s": 10685.3,
+  "hazmat_count": 2766,
+  "not_hazmat_count": 4534
+}
