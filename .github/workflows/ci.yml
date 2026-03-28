@@ -18,7 +18,7 @@ jobs:
         uses: astral-sh/setup-uv@v4
 
       - name: Install dependencies
-        run: uv sync --frozen
+        run: uv sync --frozen --group lint
 
       - name: Ruff check
         run: uv run ruff check src/ tests/
@@ -39,7 +39,7 @@ jobs:
         uses: astral-sh/setup-uv@v4
 
       - name: Install dependencies
-        run: uv sync --frozen
+        run: uv sync --frozen --group test
 
       - name: Run tests
         run: OMP_NUM_THREADS=1 uv run pytest tests/ -v --tb=short
