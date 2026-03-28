@@ -15,8 +15,7 @@ models/e5-hazmat/
 
 # Data - raw and processed are intermediate, output is the deliverable
 data/raw/
-data/processed/
-!data/output/
+
 
 
 # MLflow local state
