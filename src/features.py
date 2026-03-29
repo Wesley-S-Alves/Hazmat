@@ -370,7 +370,14 @@ class FeatureBuilder:
         path = path or MODELS_DIR
         self.category_encoder = joblib.load(path / "category_encoder.joblib")
         config = joblib.load(path / "feature_config.joblib")
-        self.embedding_model_name = config["embedding_model_name"]
+        saved_model = config["embedding_model_name"]
+        # If saved path doesn't exist locally, resolve to HF Hub or default
+        if saved_model and Path(saved_model).exists():
+            self.embedding_model_name = saved_model
+        else:
+            self.embedding_model_name = _resolve_embedding_model()
+            if self.embedding_model_name != saved_model:
+                logger.info("Resolved embedding model: %s -> %s", saved_model, self.embedding_model_name)
         self._keyword_terms = config["keyword_terms"]
         self._hazard_class_names = config["hazard_class_names"]
         self._fitted = True
