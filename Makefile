@@ -1,6 +1,7 @@
 .PHONY: install test lint lint-fix serve api dashboard docker-build docker-run train classify-all mlflow validate promote models-list
 
 install:
+	@command -v uv >/dev/null 2>&1 || { echo "uv not found. Installing via https://astral.sh/uv ..."; curl -LsSf https://astral.sh/uv/install.sh | sh || pip install uv; }
 	uv sync --frozen
 	@if [ ! -f data/processed/embeddings_cache.parquet ]; then \
 		echo "Downloading embedding cache (567MB)..."; \
