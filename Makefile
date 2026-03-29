@@ -2,6 +2,12 @@
 
 install:
 	uv sync --frozen
+	@if [ ! -f data/processed/embeddings_cache.parquet ]; then \
+		echo "Downloading embedding cache (567MB)..."; \
+		mkdir -p data/processed; \
+		curl -L -o data/processed/embeddings_cache.parquet \
+			"https://media.githubusercontent.com/media/Wesley-S-Alves/Hazmat/refs/heads/main/data/processed/embeddings_cache.parquet"; \
+	fi
 
 test:
 	OMP_NUM_THREADS=1 uv run pytest tests/ -v
