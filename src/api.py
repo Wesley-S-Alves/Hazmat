@@ -298,7 +298,9 @@ async def sample_items(n: int = 1) -> list[dict]:
     if not hasattr(app.state, "_sample_df") or app.state._sample_df is None:
         data_path = Path("data/processed/items_raw.parquet")
         if not data_path.exists():
-            raise HTTPException(status_code=404, detail="Dataset not found. Run collect_data.py first.")
+            raise HTTPException(
+                status_code=404, detail="Dataset not found. Run collect_data.py first."
+            )
         app.state._sample_df = pd.read_parquet(data_path)
         logger.info("Loaded %d items for sampling", len(app.state._sample_df))
 
@@ -306,11 +308,13 @@ async def sample_items(n: int = 1) -> list[dict]:
     sample = df.sample(n=n)
     items = []
     for _, row in sample.iterrows():
-        items.append({
-            "title": str(row.get("title", "")),
-            "description": str(row.get("description", ""))[:500],
-            "category_id": str(row.get("domain_id", row.get("category_id", ""))),
-        })
+        items.append(
+            {
+                "title": str(row.get("title", "")),
+                "description": str(row.get("description", ""))[:500],
+                "category_id": str(row.get("domain_id", row.get("category_id", ""))),
+            }
+        )
     return items
 
 

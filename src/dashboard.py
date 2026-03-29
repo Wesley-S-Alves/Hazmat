@@ -384,7 +384,9 @@ def build_app() -> gr.Blocks:
                     )
                     with gr.Row():
                         btn = gr.Button("Classify", variant="primary", size="lg", scale=3)
-                        random_btn = gr.Button("🎲 Random Item", variant="secondary", size="lg", scale=1)
+                        random_btn = gr.Button(
+                            "🎲 Random Item", variant="secondary", size="lg", scale=1
+                        )
                 with gr.Column(scale=1):
                     badge_out = gr.HTML()
                     conf_out = gr.HTML()
@@ -428,7 +430,9 @@ def build_app() -> gr.Blocks:
                 )
             with gr.Row():
                 batch_btn = gr.Button("Classify Batch", variant="primary", scale=3)
-                random_batch_btn = gr.Button("🎲 Load 10 Random Items", variant="secondary", scale=1)
+                random_batch_btn = gr.Button(
+                    "🎲 Load 10 Random Items", variant="secondary", scale=1
+                )
             batch_summary = gr.Markdown()
             batch_table = gr.Dataframe(wrap=True, interactive=False)
             batch_btn.click(classify_batch, [file_in, titles_in], [batch_table, batch_summary])
