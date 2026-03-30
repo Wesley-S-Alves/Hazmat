@@ -12,6 +12,14 @@ Classifies Mercado Libre products as hazardous materials (hazmat) using an ensem
 | Human Review | 0.07% |
 | Failed Items | 0 |
 
+## Dataset
+
+The full classified dataset (~100k items) is available at:
+
+**[`data/output/hazmat_classified_100k.csv`](https://github.com/Wesley-S-Alves/Hazmat/blob/main/data/output/hazmat_classified_100k.csv)**
+
+Contains real Mercado Libre product listings classified by the pipeline, including title, description, category, classification result, confidence score, and SHAP-based explanation.
+
 ## Architecture
 
 ```
@@ -107,10 +115,10 @@ make lint       # Code quality check (ruff)
 
 ## Documentation
 
-- `docs/architecture.pdf` — Architecture document (system design, MCP, production considerations)
-- `docs/usage_guide.pdf` — Detailed usage guide with screenshots
-- `notebooks/eda_hazmat.ipynb` — Exploratory data analysis notebook
-- `prompts/prompts_used.md` — All LLM prompts documented
+- [`docs/architecture.pdf`](https://github.com/Wesley-S-Alves/Hazmat/blob/main/docs/architecture.pdf) — Architecture document (system design, MCP, production considerations)
+- [`docs/usage_guide.pdf`](https://github.com/Wesley-S-Alves/Hazmat/blob/main/docs/usage_guide.pdf) — Detailed usage guide with screenshots
+- [`notebooks/eda_hazmat.ipynb`](https://github.com/Wesley-S-Alves/Hazmat/blob/main/notebooks/eda_hazmat.ipynb) — Exploratory data analysis notebook
+- [`prompts/prompts_used.md`](https://github.com/Wesley-S-Alves/Hazmat/blob/main/prompts/prompts_used.md) — All LLM prompts documented
 
 ## Tech Stack
 
