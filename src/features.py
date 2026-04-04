@@ -164,16 +164,24 @@ class FeatureBuilder:
             return  # Already loaded
 
         if cache_path.exists():
-            cache_df = pd.read_parquet(cache_path)
-            emb_cols = [c for c in cache_df.columns if c.startswith("emb_")]
-            self._embedding_cache = {}
-            # Normalize item_id to string for consistent lookup
-            for idx in range(len(cache_df)):
-                item_id = str(cache_df.iloc[idx]["item_id"])
-                self._embedding_cache[item_id] = cache_df.iloc[idx][emb_cols].values.astype(
-                    np.float32
+            try:
+                cache_df = pd.read_parquet(cache_path)
+                emb_cols = [c for c in cache_df.columns if c.startswith("emb_")]
+                self._embedding_cache = {}
+                # Normalize item_id to string for consistent lookup
+                for idx in range(len(cache_df)):
+                    item_id = str(cache_df.iloc[idx]["item_id"])
+                    self._embedding_cache[item_id] = cache_df.iloc[idx][emb_cols].values.astype(
+                        np.float32
+                    )
+                logger.info("Loaded %d cached embeddings into memory", len(self._embedding_cache))
+            except Exception:
+                logger.warning(
+                    "Failed to read embedding cache at %s, starting fresh",
+                    cache_path,
+                    exc_info=True,
                 )
-            logger.info("Loaded %d cached embeddings into memory", len(self._embedding_cache))
+                self._embedding_cache = {}
         else:
             self._embedding_cache = {}
             logger.info("No embedding cache found, starting fresh")
@@ -377,7 +385,9 @@ class FeatureBuilder:
         else:
             self.embedding_model_name = _resolve_embedding_model()
             if self.embedding_model_name != saved_model:
-                logger.info("Resolved embedding model: %s -> %s", saved_model, self.embedding_model_name)
+                logger.info(
+                    "Resolved embedding model: %s -> %s", saved_model, self.embedding_model_name
+                )
         self._keyword_terms = config["keyword_terms"]
         self._hazard_class_names = config["hazard_class_names"]
         self._fitted = True

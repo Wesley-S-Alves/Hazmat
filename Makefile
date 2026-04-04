@@ -2,7 +2,7 @@
 
 install:
 	@command -v uv >/dev/null 2>&1 || { echo "uv not found. Installing via https://astral.sh/uv ..."; curl -LsSf https://astral.sh/uv/install.sh | sh || pip install uv; }
-	uv sync --frozen
+	uv sync --frozen --group lint --group test
 	@if [ ! -s data/processed/embeddings_cache.parquet ] || [ $$(wc -c < data/processed/embeddings_cache.parquet) -lt 1000 ]; then \
 		echo "Downloading embedding cache (567MB)..."; \
 		mkdir -p data/processed; \

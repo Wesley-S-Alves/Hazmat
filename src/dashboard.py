@@ -189,11 +189,11 @@ def classify_batch(file_obj, titles_text: str):
     for i, r in enumerate(result["results"]):
         rows.append(
             {
-                "Title": items[i]["title"][:60],
+                "Title": items[i]["title"],
                 "Hazmat": "YES" if r["is_hazmat"] else "no",
                 "Confidence": f"{r['confidence_score']:.2f}",
                 "Source": r["source_layer"],
-                "Reason": r["reason"][:50],
+                "Reason": r["reason"],
             }
         )
 

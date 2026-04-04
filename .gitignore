@@ -33,3 +33,5 @@ Thumbs.db
 .vscode/
 .idea/
 .claude/
+data/processed/embeddings_cache.parquet
+data/output/pipeline.log

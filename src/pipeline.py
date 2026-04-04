@@ -151,7 +151,7 @@ class HazmatPipeline:
 
         # Compute features for all items at once
         start = time.time()
-        X = self.feature_builder.transform(df)
+        X = self.feature_builder.transform(df, update_cache=False)
         feat_time = time.time() - start
         logger.info("Features computed in %.1fs", feat_time)
 
